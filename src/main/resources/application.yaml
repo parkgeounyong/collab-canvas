@@ -1,3 +1,17 @@
 spring:
   application:
     name: collab-canvas
+  threads:
+    virtual:
+      enabled: true        # Tomcat, @Async, 스케줄러를 가상 스레드로 실행 (ADR-002)
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate   # 스키마는 Flyway 가 관리한다
+  flyway:
+    enabled: true
+
+management:
+  endpoint:
+    health:
+      show-components: always
